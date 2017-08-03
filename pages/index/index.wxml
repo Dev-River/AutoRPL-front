@@ -1,0 +1,14 @@
+<view class="container">
+    <view class="task-bar-wrapper">
+        <view class="task-selected">全部任务</view>
+        <view>进行任务</view>
+        <view>过期任务</view>
+    </view>
+</view>
+<view class="task-board">
+    <image src="{{task[0].userInfo.avatarUrl}}"></image>
+    <view class="summarize">
+        <text>{{tasks[0].starttime}} — {{tasks[0].endtime}}</text></view>
+        <view><text>{{tasks[0].user}}</text>
+    </view>
+</view>

@@ -1,0 +1,49 @@
+.container {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 12%;
+    justify-content: center;
+    font-family: "Microsoft YaHei";
+    background-color: #fff;
+    padding: 20rpx 0;
+    font-size: 95%;
+}
+
+.task-bar-wrapper {
+    display: flex;
+    border: 2px solid #b3b3b3;
+    border-radius: 3px;
+    color: #707070;
+}
+
+.task-bar-wrapper view {
+    padding: 4px 8px 4px 8px
+}
+
+.task-selected {
+    background-color: #707070;
+    color: #fff;
+}
+
+.task-bar-wrapper view:last-child {
+    border-left: 2px solid #b3b3b3;
+}
+.task-board{
+    display: block;
+    background-color: #fff;
+    margin-top: 5px;
+    padding: 0 20px 0 20px;
+}
+
+.task-board .summarize{
+    font-size: 90%;
+    display: flex;
+    flex-direction: column;
+}
+.task-board image{
+    height: 100px;
+    width: 100px;
+    vertical-align: middle;
+}
