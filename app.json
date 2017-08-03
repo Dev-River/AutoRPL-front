@@ -1,12 +1,32 @@
 {
-  "pages":[
-    "pages/index/index",
-    "pages/logs/logs"
-  ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#f7f7f7",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
-  }
+    "pages": [
+        "pages/index/index",
+        "pages/logs/logs"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#f7f7f7",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#dddddd",
+        "selectedColor": "#3cc51f",
+        "borderStyle": "black",
+        "backgroundColor": "#ffffff",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "iconPath": "image/wechat.png",
+                "selectedIconPath": "image/wechatHL.png",
+                "text": "查看任务"
+            },
+            {
+                "pagePath": "pages/index/index",
+                "iconPath": "image/plus.png",
+                "selectedIconPath": "image/plus.png",
+                "text": "添加任务"
+            }
+        ]
+    }
 }
