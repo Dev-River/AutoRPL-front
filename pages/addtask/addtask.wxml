@@ -1,0 +1,28 @@
+<view class="container">
+    <form>
+        <view class="schedule_time">
+            <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+                <view class="picker">
+                    开始时间: {{date}}
+                </view>
+            </picker>
+        </view>
+        <view class="schedule_time">
+            <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+                <view class="picker">
+                    开始时间: {{date}}
+                </view>
+            </picker>
+        </view>
+        <view class="towhom">
+            <text>实施对象：</text>
+        </view>
+        <view class="keysvalue-group">
+            <text>关键字/回复</text>
+            <view class="keyvalue"></view>
+        </view>
+        <view class="comment">
+            <text>备注：</text>
+        </view>
+    </form>
+</view>

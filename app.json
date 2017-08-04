@@ -1,7 +1,9 @@
 {
     "pages": [
         "pages/index/index",
-        "pages/logs/logs"
+        "pages/logs/logs",
+        "pages/addtask/addtask",
+        "pages/rich-text/rich-text"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -11,21 +13,27 @@
     },
     "tabBar": {
         "color": "#dddddd",
-        "selectedColor": "#3cc51f",
+        "selectedColor": "#000",
         "borderStyle": "black",
         "backgroundColor": "#ffffff",
         "list": [
             {
                 "pagePath": "pages/index/index",
-                "iconPath": "image/wechat.png",
-                "selectedIconPath": "image/wechatHL.png",
+                "iconPath": "images/tasks.png",
+                "selectedIconPath": "images/tasks-selected.png",
                 "text": "查看任务"
             },
             {
-                "pagePath": "pages/index/index",
-                "iconPath": "image/plus.png",
-                "selectedIconPath": "image/plus.png",
+                "pagePath": "pages/addtask/addtask",
+                "iconPath": "images/plus.png",
+                "selectedIconPath": "images/plus-selected.png",
                 "text": "添加任务"
+            },
+            {
+                "pagePath": "pages/rich-text/rich-text",
+                "iconPath": "images/wechat.png",
+                "selectedIconPath": "images/wechatHL.png",
+                "text": "rich-text"
             }
         ]
     }

@@ -1,0 +1,23 @@
+.container{
+    font-family: "Microsoft YaHei";
+}
+.schedule_time{
+    background-color: #fff;
+    margin: 5px;
+}
+.schedule_date{
+    background-color: #fff;
+    margin: 5px;
+}
+.towhom{
+    background-color: #fff;
+    margin: 5px;
+}
+.keysvalue-group{
+    background-color: #fff;
+    margin: 5px;
+}
+.comment{
+    background-color: #fff;
+    margin: 5px;
+}
