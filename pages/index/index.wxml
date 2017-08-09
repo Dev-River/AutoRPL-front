@@ -1,8 +1,8 @@
 <view class="banner">
     <view class="task-bar-wrapper">
-        <view class="task-selected">全部任务</view>
-        <view>进行任务</view>
-        <view>过期任务</view>
+        <view class="{{task_all}}" bindtap="filterall">全部任务</view>
+        <view class="{{task_ing}}" bindtap="filtering">进行任务</view>
+        <view class="{{task_expired}}" bindtap="filterexpired">过期任务</view>
     </view>
 </view>
 <scroll-view scroll-y="true" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" class="task-board">

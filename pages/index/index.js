@@ -7,7 +7,10 @@ task.push(task1);
 Page({
   data: {
       //mock数据
-      tasks:task
+      tasks:task,
+      task_all: "task-selected",
+      task_ing: "",
+      task_expired: ""
   },
   //事件处理函数
   bindViewTap: function () {
@@ -32,5 +35,29 @@ Page({
             })
         }
     }
+  },
+  //全部任务
+  filterall: function(e){
+      this.setData({
+          task_all: "task-selected",
+          task_ing: "",
+          task_expired: ""
+      });
+  },
+  //进行中任务
+  filtering: function(e){
+      this.setData({
+          task_all: "",
+          task_ing: "task-selected",
+          task_expired: ""
+      });
+  },
+  //过期任务
+  filterexpired: function(e){
+      this.setData({
+          task_all: "",
+          task_ing: "",
+          task_expired: "task-selected"
+      });
   }
 })

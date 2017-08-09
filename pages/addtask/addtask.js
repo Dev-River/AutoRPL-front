@@ -14,14 +14,96 @@ Date.prototype.format = function (fmt) { //author: meizz
     return fmt;
 };
 
+//接口返回
+//暂时造数据
+var app = getApp()
+var objects = [];
+
 Page({
     data: {
-        date: new Date().format('yyyy-MM-dd')
+        modalHidden: true,
+        startdate: new Date().format('yyyy-MM-dd'),
+        enddate: new Date().format('yyyy-MM-dd'),
+        warning: "结束时间不能早于开始时间！",
+        loading: false,
+        objpicker_display: 'none',
+        disabled: false,
+        objs: objects, 
+        obj_s: {}
     },
-    bindDateChange: function (e) {
+    bindStartDateChange: function (e) {
         console.log('picker发送选择改变，携带值为', e.detail.value)
+        if (e.detail.value <= this.data.enddate) {
+            if (e.detail.value < new Date().format('yyyy-MM-dd')){
+                this.setData({
+                    warning: "开始时间不能早于当前时间！",
+                    modalHidden: false
+                })
+                return;
+            }
+            this.setData({
+                startdate: e.detail.value
+            });
+        } else {
+            this.setData({
+                modalHidden: false
+            })
+        }
+    },
+    bindEndDateChange: function (e) {
+        console.log('picker发送选择改变，携带值为', e.detail.value)
+        if (e.detail.value >= this.data.startdate) {
+            this.setData({
+                enddate: e.detail.value
+            });
+        } else {
+            this.setData({
+                modalHidden: false
+            })
+        }
+    },
+    modalChange: function (e) {
         this.setData({
-            date: e.detail.value
+            modalHidden: true
         })
-    }
+    },
+    toWhom: function () {
+        var replace;
+        if (this.data.objpicker_display == 'block'){
+            replace = 'none';
+        } else {
+            replace = 'block';
+        }
+        this.setData({
+            objpicker_display: replace
+        })
+    },
+    bindObjChange: function (e) {
+        this.setData({
+            obj_s: e.detail.value,
+        })
+    },
+    onLoad: function () {
+        console.log('onLoad');
+        if (app.globalData.userInfo) {
+            var obj = app.globalData.userInfo;
+            for(var i = 0; i<10; i++){
+                objects.push(obj);
+            }
+            this.setData({
+                objs: objects
+            });
+        } else {
+            // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+            // 所以此处加入 callback 以防止这种情况
+            app.userInfoReadyCallback = res => {
+                for (var i = 0; i < 10; i++) {
+                    objects.push(obj);
+                }
+                this.setData({
+                    objs: objects
+                }); 
+            }
+        }
+    },
 });

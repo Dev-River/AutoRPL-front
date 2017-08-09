@@ -1,21 +1,33 @@
 <view class="container">
     <form>
         <view class="schedule_time">
-            <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+            <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindStartDateChange">
                 <view class="picker">
-                    开始时间: {{date}}
+                    开始时间: {{startdate}}
                 </view>
             </picker>
         </view>
         <view class="schedule_time">
-            <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+            <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindEndDateChange">
                 <view class="picker">
-                    开始时间: {{date}}
+                    结束时间: {{enddate}}
                 </view>
             </picker>
         </view>
-        <view class="towhom">
+        <view class="towhom" bindtap="toWhom">
             <text>实施对象：</text>
+            <view class="classname" style="display:{{objpicker_display}}">
+                <picker-view indicator-style="height: 60px;" value="{{value}}" bindchange="bindObjChange">
+                    <picker-view-column>
+                        <view wx:for="{{objs}}" style="line-height: 50px">
+                            <image src="{{item.avatarUrl}}"></image>
+                                {{item.nickName}}
+                        </view>
+                    </picker-view-column>
+                </picker-view>
+                <button type="default" size="default" loading="{{objLoading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="default"> 确定
+                </button>
+            </view>
         </view>
         <view class="keysvalue-group">
             <text>关键字/回复</text>
@@ -24,5 +36,12 @@
         <view class="comment">
             <text>备注：</text>
         </view>
+        <view class="button-wrapper">
+            <button type="primary" size="default" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="primary"> 提交
+                </button>
+        </view>
     </form>
+    <modal class="modal" hidden="{{modalHidden}}" no-cancel bindconfirm="modalChange" bindcancel="modalChange">
+        <view> {{warning}} </view>
+    </modal>
 </view>

@@ -21,3 +21,14 @@
     background-color: #fff;
     margin: 5px;
 }
+picker-view{
+    width: 100%;
+    height: 300px;
+}
+picker-view-column image{
+    height: 60px;
+    width: 60px;
+}
+picker-view-column view{
+    padding-left: 30px;
+}
