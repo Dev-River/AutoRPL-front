@@ -29,7 +29,17 @@ Page({
         objpicker_display: 'none',
         disabled: false,
         objs: objects, 
-        obj_s: {}
+        obj_s_display: "none",
+        obj_s: {},
+        keymap: [
+            '一对一',
+            '多对一',
+            '随机多对多'
+        ],
+        tpltype: {
+            isHidden: true,
+            selected: ""
+        }
     },
     bindStartDateChange: function (e) {
         console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -78,9 +88,9 @@ Page({
             objpicker_display: replace
         })
     },
-    bindObjChange: function (e) {
+    bindObjSelect: function (e) {
         this.setData({
-            obj_s: e.detail.value,
+            obj_s: this.data.objs[e.detail.value],
         })
     },
     onLoad: function () {
@@ -106,4 +116,18 @@ Page({
             }
         }
     },
+    bindTypeChange: function(e){
+        this.setData({
+            tpltype: {
+                isHidden: false,
+                selected: e.detail.value
+            }
+        });
+    },
+    addKeyMap: function(){},
+    objComfirm: function(){
+        this.setData({
+            obj_s_display: "flex"
+        });
+    }
 });

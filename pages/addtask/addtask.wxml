@@ -3,38 +3,56 @@
         <view class="schedule_time">
             <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindStartDateChange">
                 <view class="picker">
-                    开始时间: {{startdate}}
+                    开始时间: <text>{{startdate}}</text>
                 </view>
             </picker>
         </view>
         <view class="schedule_time">
             <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindEndDateChange">
                 <view class="picker">
-                    结束时间: {{enddate}}
+                    结束时间: <text>{{enddate}}</text>
                 </view>
             </picker>
         </view>
         <view class="towhom" bindtap="toWhom">
             <text>实施对象：</text>
-            <view class="classname" style="display:{{objpicker_display}}">
-                <picker-view indicator-style="height: 60px;" value="{{value}}" bindchange="bindObjChange">
+            <view style="display:{{objpicker_display}}">
+                <picker-view indicator-style="height: 60px;" value="{{value}}" bindchange="bindObjSelect">
                     <picker-view-column>
                         <view wx:for="{{objs}}" style="line-height: 50px">
                             <image src="{{item.avatarUrl}}"></image>
-                                {{item.nickName}}
+                            {{item.nickName}}
                         </view>
                     </picker-view-column>
                 </picker-view>
-                <button type="default" size="default" loading="{{objLoading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="default"> 确定
+                <button type="default" size="default" loading="{{objLoading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="objComfirm"> 确定
                 </button>
             </view>
+            <view class="obj_selected" style="display:{{obj_s_display}}">
+                <image src="{{obj_s.avatarUrl}}"></image>
+                <view class="objDetail">
+                    <view>{{obj_s.nickName}}</view>
+                    <view>province：{{obj_s.province}}</view>
+                    <view>city: {{obj_s.city}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="rplType">
+            <picker bindchange="bindTypeChange" value="{{index}}" range="{{keymap}}">
+                <view class="picker">
+                    回复类型：<text hidden="{{tpltype.isHidden}}">{{keymap[tpltype.selected]}}</text>
+                </view>
+            </picker>
         </view>
         <view class="keysvalue-group">
-            <text>关键字/回复</text>
-            <view class="keyvalue"></view>
+            <text>关键字/回复：</text>
+            <view class="addKeymap" bindtap="addKeyMap">+新增</view>
+            <view class="keyvalue">
+            </view>
         </view>
         <view class="comment">
             <text>备注：</text>
+            <textarea />
         </view>
         <view class="button-wrapper">
             <button type="primary" size="default" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="primary"> 提交
